@@ -260,7 +260,7 @@ def pca_by_run(scores: list[dict[str, str]], explained: list[dict[str, str]]) ->
     pc1 = f(explained[0]["explained_variance_ratio"]) * 100
     pc2 = f(explained[1]["explained_variance_ratio"]) * 100
     runs = sorted({r["run_block"] for r in scores}, key=int)
-    fig, axes = plt.subplots(1, 3, figsize=(12.8, 4.3), dpi=180, sharex=True, sharey=True)
+    fig, axes = plt.subplots(1, 3, figsize=(12.8, 4.8), dpi=180, sharex=True, sharey=True)
     for ax, run in zip(axes, runs):
         for model in ["chatgpt_image_2", "xai_grok_imagine"]:
             pts = np.asarray([[f(r["PC1"]), f(r["PC2"])] for r in scores if r["run_block"] == run and r["model_key"] == model])
@@ -270,10 +270,10 @@ def pca_by_run(scores: list[dict[str, str]], explained: list[dict[str, str]]) ->
         ax.axvline(0, color=REFERENCE_LINE_COLOR, linewidth=0.8)
         ax.grid(color=GRID_COLOR)
     axes[0].set_ylabel(pc_axis_label("PC2", pc2), fontsize=8)
-    for ax in axes:
-        ax.set_xlabel(pc_axis_label("PC1", pc1), fontsize=8)
+    fig.supxlabel(pc_axis_label("PC1", pc1), fontsize=8, y=0.02)
     axes[0].legend(frameon=False, fontsize=7)
-    fig.suptitle("PCA Stability Across the Three Generation Runs", y=1.04)
+    fig.suptitle("PCA Stability Across the Three Generation Runs", y=0.98)
+    fig.subplots_adjust(bottom=0.18, top=0.82, wspace=0.08)
     save(fig, "v2_04_pca_by_run_block.png")
 
 
