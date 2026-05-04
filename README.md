@@ -76,7 +76,7 @@ The scripts default to repo-relative paths. If you move the data, set `FILMSTOCK
 
 ## Regenerating Images
 
-The original generations were run through ComfyUI with provider-specific custom nodes. The workflow JSON files are included for auditability, but API credentials are not included.
+The original generations were run through ComfyUI with provider-specific custom nodes. The workflow JSON files are included as templates and require local provider authentication to run.
 
 Typical local configuration:
 
@@ -94,10 +94,6 @@ python code/generate_full_dataset.py
 ```
 
 Each full run generates 96 images. The public dataset contains three completed runs.
-
-## Privacy And Security
-
-Before publishing, the repository was checked for API keys, local absolute paths, hostnames, private network identifiers, and hidden image metadata. The images were re-saved without ancillary PNG metadata. The analysis CSVs use repo-relative image paths. No provider API keys are stored in this repository.
 
 ## Limitations
 

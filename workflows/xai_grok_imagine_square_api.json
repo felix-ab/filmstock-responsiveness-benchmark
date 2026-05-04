@@ -12,7 +12,7 @@
     },
     "_meta": {
       "title": "xAI Grok Imagine direct raw square generation",
-      "notes": "Calls api.x.ai directly using XAI_API_KEY or a local key file configured in the custom ComfyUI node. If your account rejects Pro, change model to grok-imagine-image."
+      "notes": "Calls api.x.ai through the local ComfyUI node. Requires XAI_API_KEY in the local generation environment. Model access may vary by account; use grok-imagine-image if pro is unavailable."
     }
   },
   "20": {
