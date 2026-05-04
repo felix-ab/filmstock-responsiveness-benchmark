@@ -39,7 +39,7 @@ code/
 
 data/
   images/
-    run1/ ... run3/       # normalized 1024x1024 images used in analysis
+    *.png                 # 288 normalized 1024x1024 images with run/condition metadata in filenames
   manifests/              # prompt, condition, model, and image metadata
   analysis/               # feature tables, PCA scores, tests, summaries
 
