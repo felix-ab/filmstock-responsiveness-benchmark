@@ -1,0 +1,19 @@
+{
+  "advanced_dir": "data/generated/pooled_three_run_analysis/analysis/stats/advanced_suite",
+  "figures_dir": "data/generated/pooled_three_run_analysis/analysis/stats/advanced_suite/figures",
+  "n_images": 288,
+  "n_features": 195,
+  "n_distance_rows": 432,
+  "n_permanova_terms": 11,
+  "n_bootstrap_tests": 12,
+  "n_distance_variance_rows": 24,
+  "n_feature_variance_rows": 390,
+  "n_pls_cv_rows": 40,
+  "n_pls_vip_rows": 160,
+  "n_regularized_cv_rows": 8,
+  "n_regularized_coef_rows": 320,
+  "n_reliability_rows": 1170,
+  "n_outlier_rows": 288,
+  "pca_pc10_cumulative_variance": 0.741673060363613,
+  "n_figures": 7
+}

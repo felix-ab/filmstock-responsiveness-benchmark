@@ -1,0 +1,12 @@
+term,term_label,pseudo_f,partial_r2,df_term,df_residual,permutation_p_value,n_permutations,response_space,permutation_scheme,bh_fdr_p
+model,model,10.406960078138058,0.03698188586113281,1,271,0.001,999,PC1-PC10 from all image features,Freedman-Lane residual permutation within run_id blocks,0.0018333333333333333
+film,film,6.201501561140585,0.022371818068138278,1,271,0.001,999,PC1-PC10 from all image features,Freedman-Lane residual permutation within run_id blocks,0.0018333333333333333
+light,light,36.32332084728191,0.11819253009221532,1,271,0.001,999,PC1-PC10 from all image features,Freedman-Lane residual permutation within run_id blocks,0.0018333333333333333
+scan,scan,6.521497153531036,0.023499070235712946,1,271,0.001,999,PC1-PC10 from all image features,Freedman-Lane residual permutation within run_id blocks,0.0018333333333333333
+model:film,model by film,1.3013207221202738,0.004778973229616663,1,271,0.226,999,PC1-PC10 from all image features,Freedman-Lane residual permutation within run_id blocks,0.31075
+model:light,model by light,10.982396348591049,0.038947099148041994,1,271,0.001,999,PC1-PC10 from all image features,Freedman-Lane residual permutation within run_id blocks,0.0018333333333333333
+model:scan,model by scan,1.6987703838361878,0.0062294757744785195,1,271,0.104,999,PC1-PC10 from all image features,Freedman-Lane residual permutation within run_id blocks,0.16342857142857142
+film:light,film by light,3.6257639537023314,0.013202563013401683,1,271,0.001,999,PC1-PC10 from all image features,Freedman-Lane residual permutation within run_id blocks,0.0018333333333333333
+film:scan,film by scan,0.44408924979905867,0.0016360247556924375,1,271,0.88,999,PC1-PC10 from all image features,Freedman-Lane residual permutation within run_id blocks,0.88
+light:scan,light by scan,1.0952691668972085,0.004025314994452898,1,271,0.363,999,PC1-PC10 from all image features,Freedman-Lane residual permutation within run_id blocks,0.44366666666666665
+film:light:scan,film by light by scan,0.8919179816210837,0.003280413732935505,1,271,0.498,999,PC1-PC10 from all image features,Freedman-Lane residual permutation within run_id blocks,0.5478

@@ -1,0 +1,9 @@
+target,target_label,method,leave_run_out_accuracy,leave_run_out_auc,selected_c_median,selected_c_values
+model_key,Model,LASSO logistic,0.9548611111111112,0.9912712191358025,3.0,3.0;3.0;10.0
+model_key,Model,Ridge logistic,0.9652777777777778,0.9933449074074074,0.1,0.1;0.1;10.0
+film_key,Filmstock,LASSO logistic,0.75,0.7924382716049383,0.3,10.0;0.3;0.3
+film_key,Filmstock,Ridge logistic,0.7465277777777778,0.8403260030864197,0.03,0.03;0.1;0.03
+light_key,Lighting,LASSO logistic,0.9583333333333334,0.9954668209876544,3.0,1.0;3.0;10.0
+light_key,Lighting,Ridge logistic,0.9722222222222222,0.9964795524691358,0.03,0.03;0.03;0.03
+scan_key,Scan,LASSO logistic,0.7326388888888888,0.7784047067901234,1.0,10.0;1.0;1.0
+scan_key,Scan,Ridge logistic,0.6979166666666666,0.7775366512345678,0.1,0.1;0.1;0.1

@@ -1,0 +1,17 @@
+test,model_key,distance_metric,metric_label,grouping,statistic,p_value,n_groups,holm_adjusted_p,bh_fdr_p,n_blocks
+Kruskal-Wallis,chatgpt_image_2,distance_all_selected_features,All selected features,effect_type,79.4711625988507,5.534218559146311e-18,3,8.301327838719467e-17,4.427374847317049e-17,
+Friedman repeated-measures ANOVA,chatgpt_image_2,distance_all_selected_features,All selected features,effect_type within run by scene by replicate blocks,27.44444444444443,1.0977782183364015e-06,3,1.3173338620036818e-05,3.458324611330157e-06,18
+Kruskal-Wallis,chatgpt_image_2,distance_color_features,Color features,effect_type,102.33649798031513,5.996692988560004e-23,3,9.594708781696007e-22,9.594708781696007e-22,
+Friedman repeated-measures ANOVA,chatgpt_image_2,distance_color_features,Color features,effect_type within run by scene by replicate blocks,27.111111111111086,1.2968717292488088e-06,3,1.4265589021736896e-05,3.458324611330157e-06,18
+Kruskal-Wallis,chatgpt_image_2,distance_contrast_texture_features,Contrast and texture,effect_type,2.805704898446834,0.24589456088409878,3,0.7376836826522963,0.2810223552961129,
+Friedman repeated-measures ANOVA,chatgpt_image_2,distance_contrast_texture_features,Contrast and texture,effect_type within run by scene by replicate blocks,6.7777777777777715,0.03374615180055048,3,0.23622306260385337,0.05399384288088077,18
+Kruskal-Wallis,chatgpt_image_2,distance_structure_features,Structure features,effect_type,1.6161532115833097,0.4457145270429047,3,0.7376836826522963,0.4457145270429047,
+Friedman repeated-measures ANOVA,chatgpt_image_2,distance_structure_features,Structure features,effect_type within run by scene by replicate blocks,2.3333333333333144,0.3114032239146006,3,0.7376836826522963,0.33216343884224064,18
+Kruskal-Wallis,xai_grok_imagine,distance_all_selected_features,All selected features,effect_type,37.13469306480056,8.635825484556203e-09,3,1.1226573129923064e-07,3.454330193822481e-08,
+Friedman repeated-measures ANOVA,xai_grok_imagine,distance_all_selected_features,All selected features,effect_type within run by scene by replicate blocks,19.44444444444443,5.9936659867848585e-05,3,0.0005394299388106372,0.00011987331973569717,18
+Kruskal-Wallis,xai_grok_imagine,distance_color_features,Color features,effect_type,47.622909199522155,4.5584443917930434e-11,3,6.381822148510261e-10,2.431170342289623e-10,
+Friedman repeated-measures ANOVA,xai_grok_imagine,distance_color_features,Color features,effect_type within run by scene by replicate blocks,24.77777777777777,4.1646059823852795e-06,3,4.1646059823852795e-05,9.519099388309211e-06,18
+Kruskal-Wallis,xai_grok_imagine,distance_contrast_texture_features,Contrast and texture,effect_type,5.196684587813593,0.07439680408542387,3,0.2975872163416955,0.0915652973359063,
+Friedman repeated-measures ANOVA,xai_grok_imagine,distance_contrast_texture_features,Contrast and texture,effect_type within run by scene by replicate blocks,6.333333333333314,0.04214384350927679,3,0.25017379133445516,0.05619179134570238,18
+Kruskal-Wallis,xai_grok_imagine,distance_structure_features,Structure features,effect_type,6.354717813051252,0.04169563188907586,3,0.25017379133445516,0.05619179134570238,
+Friedman repeated-measures ANOVA,xai_grok_imagine,distance_structure_features,Structure features,effect_type within run by scene by replicate blocks,8.444444444444429,0.014666017116527218,3,0.11732813693221775,0.02607291931827061,18

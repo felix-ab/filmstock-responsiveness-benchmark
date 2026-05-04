@@ -1,0 +1,269 @@
+{
+  "id": "b8e77b7e-5538-42c6-9a88-chatgpt-image-2-filmstock",
+  "revision": 0,
+  "last_node_id": 30,
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "HostAGPTImage2OAuth",
+      "pos": [
+        40,
+        80
+      ],
+      "size": [
+        460,
+        420
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "widget": {
+            "name": "prompt"
+          },
+          "link": null
+        },
+        {
+          "name": "size",
+          "type": "COMBO",
+          "widget": {
+            "name": "size"
+          },
+          "link": null
+        },
+        {
+          "name": "quality",
+          "type": "COMBO",
+          "widget": {
+            "name": "quality"
+          },
+          "link": null
+        },
+        {
+          "name": "host_model",
+          "type": "COMBO",
+          "widget": {
+            "name": "host_model"
+          },
+          "link": null
+        },
+        {
+          "name": "prompt_preset",
+          "type": "COMBO",
+          "widget": {
+            "name": "prompt_preset"
+          },
+          "link": null
+        },
+        {
+          "name": "modifiers",
+          "type": "STRING",
+          "widget": {
+            "name": "modifiers"
+          },
+          "link": null
+        },
+        {
+          "name": "output_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "output_prefix"
+          },
+          "link": null
+        },
+        {
+          "name": "free_comfy_memory",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "free_comfy_memory"
+          },
+          "link": null
+        },
+        {
+          "name": "run_token",
+          "type": "STRING",
+          "widget": {
+            "name": "run_token"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            1
+          ]
+        },
+        {
+          "name": "source_path",
+          "type": "STRING",
+          "links": null
+        },
+        {
+          "name": "metadata_json",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "HostAGPTImage2OAuth"
+      },
+      "widgets_values": [
+        "Square photorealistic editorial 35mm photograph of a 25-year-old woman with short dark hair wearing an oversized red leather jacket and black jeans, seated on the floor of a lived-in city apartment, vinyl records, a chrome floor lamp, and a half-open window in the background. Natural human proportions, realistic skin texture, art-directed but not glossy. Camera at eye level, 50mm lens, medium shot, subject clearly visible. Shot on Kodak Portra 400, 35mm color negative film, natural skin tones, soft pastel color response, gentle highlight rolloff. Cool diffuse ambient light, soft open shadows, no dominant warm practical light source. Rated at box speed, clean neutral Frontier lab scan, restrained contrast, fine natural grain. No text, no logos, no watermark, no artificial digital smoothness.",
+        "1024x1024",
+        "high",
+        "auto",
+        "raw",
+        "",
+        "filmstock_benchmark/source/chatgpt_image_2",
+        true,
+        "filmstock_apartment_portra_cool_clean_rep01"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "ImageScale",
+      "pos": [
+        580,
+        125
+      ],
+      "size": [
+        270,
+        160
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "name": "upscale_method",
+          "type": "COMBO",
+          "widget": {
+            "name": "upscale_method"
+          },
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": null
+        },
+        {
+          "name": "crop",
+          "type": "COMBO",
+          "widget": {
+            "name": "crop"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "lanczos",
+        1024,
+        1024,
+        "center"
+      ]
+    },
+    {
+      "id": 30,
+      "type": "SaveImage",
+      "pos": [
+        930,
+        125
+      ],
+      "size": [
+        270,
+        110
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "filmstock_benchmark/chatgpt_image_2"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      10,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      20,
+      0,
+      30,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}

@@ -1,0 +1,22 @@
+{
+  "pooled_dir": "data/generated/pooled_three_run_analysis",
+  "run_dirs": [
+    "data/generated/filmstock_20260503_005006_f42a60",
+    "data/generated/filmstock_20260503_085439_ff0729",
+    "data/generated/filmstock_20260503_114446_63c69b"
+  ],
+  "run_ids": [
+    "filmstock_20260503_005006_f42a60",
+    "filmstock_20260503_085439_ff0729",
+    "filmstock_20260503_114446_63c69b"
+  ],
+  "manifest_rows": 288,
+  "feature_rows": 288,
+  "missing_files": 0,
+  "unreadable_files": 0,
+  "non_success_manifest_rows": 0,
+  "unexpected_size_count": 0,
+  "non_square_count": 0,
+  "images_with_nan_features": 0,
+  "created_at": "2026-05-03T15:02:33-04:00"
+}

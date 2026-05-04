@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If this proof-of-concept benchmark is useful, please cite the repository."
+title: "Filmstock Responsiveness as a Statistical Benchmark for Image Generation Models"
+authors:
+  - family-names: "Brener"
+    given-names: "Felix"
+date-released: "2026-05-03"
+license: "MIT"
+repository-code: "https://github.com/felix-ab/filmstock-responsiveness-benchmark"
+keywords:
+  - image generation
+  - text-to-image
+  - filmstock
+  - benchmark
+  - PCA
+  - MANOVA
+  - PERMANOVA
+  - robust regression

@@ -1,0 +1,15 @@
+{
+  "stats_dir": "data/generated/pooled_three_run_analysis/analysis/stats",
+  "figures_dir": "data/generated/pooled_three_run_analysis/analysis/stats/figures",
+  "n_images": 288,
+  "n_distance_rows": 432,
+  "n_paired_model_tests": 12,
+  "n_targeted_feature_tests": 40,
+  "n_all_feature_screening_tests": 585,
+  "n_regression_rows": 132,
+  "n_manova_terms": 10,
+  "n_nonparametric_tests": 16,
+  "n_run_variation_rows": 24,
+  "n_condition_seed_variation_rows": 48,
+  "n_figures": 12
+}
