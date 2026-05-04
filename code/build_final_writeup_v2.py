@@ -274,12 +274,7 @@ def style_document(doc: Document) -> None:
     header = section.header
     p = header.paragraphs[0]
     p.text = ""
-    p.paragraph_format.space_after = Pt(4)
-    run = p.add_run("Filmstock Responsiveness Benchmark")
-    run.font.name = BASE_FONT
-    run._element.rPr.rFonts.set(qn("w:eastAsia"), BASE_FONT)
-    run.font.size = Pt(10)
-    run.font.color.rgb = DARK
+    p.paragraph_format.space_after = Pt(0)
     p.alignment = WD_ALIGN_PARAGRAPH.LEFT
 
     footer = section.footer
