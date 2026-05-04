@@ -7,9 +7,6 @@ import csv
 import os
 from pathlib import Path
 
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 from docx import Document
 from docx.enum.section import WD_SECTION
 from docx.enum.table import WD_ALIGN_VERTICAL
@@ -28,7 +25,6 @@ STATS_DIR = ANALYSIS_DIR / "stats"
 ADV_DIR = STATS_DIR / "advanced_suite"
 ASSET_DIR = Path(os.environ.get("FILMSTOCK_ASSET_DIR", REPO_ROOT / "figures"))
 FIG_DIR = Path(os.environ.get("FILMSTOCK_FIGURE_DIR", REPO_ROOT / "figures" / "paper_figures"))
-EQ_DIR = Path(os.environ.get("FILMSTOCK_EQUATION_DIR", REPO_ROOT / "figures" / "equations"))
 OUT_DOCX = Path(os.environ.get("FILMSTOCK_OUTPUT_DOCX", REPO_ROOT / "paper" / "filmstock_responsiveness_benchmark.docx"))
 
 
@@ -388,7 +384,7 @@ def add_code_block(doc: Document, text: str) -> None:
         run.font.size = Pt(12)
 
 
-def add_math_run(paragraph, text: str, *, italic: bool = False, sub: bool = False, sup: bool = False, size: float = 12) -> None:
+def add_math_run(paragraph, text: str, *, italic: bool = False, sub: bool = False, sup: bool = False, size: float = 15) -> None:
     run = paragraph.add_run(text)
     run.font.name = BASE_FONT
     run._element.rPr.rFonts.set(qn("w:eastAsia"), BASE_FONT)
@@ -399,46 +395,71 @@ def add_math_run(paragraph, text: str, *, italic: bool = False, sub: bool = Fals
     run.font.superscript = sup
 
 
-def add_display_math(doc: Document, parts: list[tuple[str, str | None]]) -> None:
+def add_display_math(doc: Document, parts: list[tuple[str, str | None]], *, size: float = 15) -> None:
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.paragraph_format.space_before = Pt(2)
     p.paragraph_format.space_after = Pt(6)
     p.paragraph_format.keep_together = True
     for text, style in parts:
+        flags = set((style or "").split())
         add_math_run(
             p,
             text,
-            italic=style == "italic",
-            sub=style == "sub",
-            sup=style == "sup",
-            size=12,
+            italic="italic" in flags,
+            sub="sub" in flags,
+            sup="sup" in flags,
+            size=size,
         )
 
 
-def render_equation_png(filename: str, latex: str) -> Path:
-    EQ_DIR.mkdir(parents=True, exist_ok=True)
-    path = EQ_DIR / filename
-    fig = plt.figure(figsize=(6.0, 0.65), dpi=300)
-    fig.patch.set_alpha(0)
-    fig.text(0.5, 0.5, f"${latex}$", ha="center", va="center", fontsize=18, color="black")
-    fig.savefig(path, transparent=True, bbox_inches="tight", pad_inches=0.035)
-    plt.close(fig)
-    return path
+EQUATION_PARTS = {
+    "eq_standardization.png": [
+        ("z", "italic"), ("ij", "sub"), (" = (", None), ("x", "italic"), ("ij", "sub"),
+        (" − ", None), ("x̄", "italic"), ("j", "sub"), (") / ", None), ("s", "italic"), ("j", "sub"),
+    ],
+    "eq_distance.png": [
+        ("D", "italic"), ("i", "sub"), (" = [Σ", None), ("j∈S", "sub"), ("(", None),
+        ("z", "italic"), ("high, ij", "sub"), (" − ", None), ("z", "italic"), ("low, ij", "sub"),
+        (")", None), ("2", "sup"), ("]", None), ("1/2", "sup"),
+    ],
+    "eq_delta.png": [
+        ("Δ", None), ("i", "sub"), (" = ", None), ("D", "italic"), ("i, Grok", "sub"),
+        (" − ", None), ("D", "italic"), ("i, ChatGPT", "sub"),
+    ],
+    "eq_pca_covariance.png": [
+        ("C", "italic"), (" = ", None), ("Z", "italic"), ("T", "sup"), ("Z", "italic"),
+        (" / (", None), ("n", "italic"), (" − 1)", None),
+    ],
+    "eq_pca_eigenvector.png": [
+        ("C", "italic"), ("v", "italic"), ("k", "sub"), (" = ", None), ("λ", None),
+        ("k", "sub"), ("v", "italic"), ("k", "sub"),
+    ],
+    "eq_pca_score.png": [
+        ("t", "italic"), ("ik", "sub"), (" = ", None), ("z", "italic"), ("i", "sub"),
+        (" · ", None), ("v", "italic"), ("k", "sub"),
+    ],
+    "eq_wls_weights.png": [
+        ("w", "italic"), ("i", "sub"), (" ≈ 1 / ", None), ("σ̂", None), ("i", "sub"),
+        ("2", "sup"),
+    ],
+    "eq_appendix_standardization.png": [
+        ("z", "italic"), ("ij", "sub"), (" = (", None), ("x", "italic"), ("ij", "sub"),
+        (" − ", None), ("x̄", "italic"), ("j", "sub"), (") / ", None), ("s", "italic"), ("j", "sub"),
+    ],
+    "eq_appendix_distance.png": [
+        ("D", "italic"), ("i", "sub"), (" = [Σ", None), ("j∈S", "sub"), ("(", None),
+        ("z", "italic"), ("high, ij", "sub"), (" − ", None), ("z", "italic"), ("low, ij", "sub"),
+        (")", None), ("2", "sup"), ("]", None), ("1/2", "sup"),
+    ],
+}
 
 
 def add_equation(doc: Document, filename: str, latex: str, width_inches: float | None = None) -> None:
-    image_path = render_equation_png(filename, latex)
-    p = doc.add_paragraph()
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p.paragraph_format.space_before = Pt(2)
-    p.paragraph_format.space_after = Pt(6)
-    p.paragraph_format.keep_together = True
-    run = p.add_run()
-    if width_inches is None:
-        run.add_picture(str(image_path))
-    else:
-        run.add_picture(str(image_path), width=Inches(width_inches))
+    parts = EQUATION_PARTS.get(filename)
+    if parts is None:
+        parts = [(latex, None)]
+    add_display_math(doc, parts, size=15)
 
 
 def add_numbered_item(doc: Document, text: str) -> None:

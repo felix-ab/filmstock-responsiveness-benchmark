@@ -45,7 +45,6 @@ data/
 
 figures/
   paper_figures/          # final and appendix figure candidates
-  equations/              # rendered equation assets used in the DOCX
 
 workflows/
   ComfyUI workflow/API JSON files for ChatGPT Image 2 and Grok Imagine
